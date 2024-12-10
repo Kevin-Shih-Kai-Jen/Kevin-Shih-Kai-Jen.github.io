@@ -5,7 +5,7 @@
 import sys
 import random
 import pygame
-import relative_path
+from pathlib import Path
 
 
 ######### 初始化pygame
@@ -36,6 +36,20 @@ time = 0  # 順便配合幀數 # pylint: disable = invalid-name # This is a muta
 fps_speed = 100  # pylint: disable = invalid-name # This is a mutable variable
 
 score = 0  # pylint: disable = invalid-name # This is a mutable variable
+
+######### This is for building relative paths
+picture_directory = Path(__file__).parent / "picture"
+block_picture = [
+    "picture_1.jpg",
+    "picture_2.jpg",
+    "picture_3.jpg",
+    "picture_4.jpg",
+    "picture_5.jpg",
+    "picture_6.jpg",
+    "picture_7.jpg",
+]
+block_picture_path = [picture_directory/ picture for picture in block_picture]
+background_picture_path = picture_directory/ "background.jpeg"
 
 
 class BlockBase:  # pylint: disable=too-few-public-methods # 因為這是用於繼承的，重點不是他的fnc
